@@ -1,7 +1,7 @@
 <?php
     date_default_timezone_set('America/Los_Angeles');
     require_once __DIR__.'/../vendor/autoload.php';
-    // require_once __DIR__.'/../src/ping_pong.php';
+    require_once __DIR__.'/../src/PingPong.php';
     use Symfony\Component\Debug\Debug;
     Debug::enable();
 
@@ -17,8 +17,13 @@
     ));
 
     $app->get("/", function() use ($app) {
+        $test= new PingPong();
+        $output = $test->makePingPong(3);
+        var_dump($output);
         return "hello";
+        // return $app['twig']->render('pong.html.twig');
     }) ;
+
 
 
 
